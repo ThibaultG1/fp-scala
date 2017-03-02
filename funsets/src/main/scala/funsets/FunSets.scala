@@ -22,34 +22,38 @@ object FunSets {
    * Returns the set of the one given element.
    */
   def singleElementSet(elem: Int): FunSet =
-    ??? //TODO : singleton set
+    // def f(x: Int) = { x == elem }
+    // f
+    x => x == elem
 
   /**
    * Returns the union of the two given sets,
    * the sets of all elements that are in either `s` or `t`.
    */
   def union(s: FunSet, t: FunSet): FunSet =
-    ??? //TODO : union
+    x => s(x) || t(x)
+  // def f(x: Int): Boolean = { s(x) || t(x) }
+  // f
 
   /**
    * Returns the intersection of the two given sets,
    * the set of all elements that are both in `s` or `t`.
    */
   def intersect(s: FunSet, t: FunSet): FunSet =
-    ??? // TODO : interesection between 2 sets
+    x => s(x) && t(x)
 
   /**
    * Returns the difference of the two given sets,
    * the set of all elements of `s` that are not in `t`.
    */
   def diff(s: FunSet, t: FunSet): FunSet =
-    ??? // TODO : difference between 2 sets
+    x => s(x) && !t(x)
 
   /**
    * Returns the subset of `s` for which `p` holds.
    */
   def filter(s: FunSet, p: Int => Boolean): FunSet =
-    ??? //TODO : return a new set in which only elements verifying the predicate are kept
+    x => !(s(x) && !p(x))
 
   /**
    * The bounds for `forall` and `exists` are +/- 1000.
