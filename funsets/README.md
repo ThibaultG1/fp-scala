@@ -64,11 +64,11 @@ Note that there is no direct way to find which elements are in a FunSet. `contai
 
         def forall(s: FunSet, p: Int => Boolean): Boolean = {
          def iter(a: Int): Boolean = {
-           if (???) ???
-           else if (???) ???
-           else iter(???)
+           if (borne sup dépassée) vrai
+           else if (valeur de s et élément hors de p) faux
+           else iter(a+1)
          }
-         iter(???)
+         iter(borne inf)
 
     }
 

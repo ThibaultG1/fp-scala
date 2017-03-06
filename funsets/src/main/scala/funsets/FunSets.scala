@@ -65,11 +65,11 @@ object FunSets {
    */
   def forall(s: FunSet, p: Int => Boolean): Boolean = {
     def iter(a: Int): Boolean = {
-      if (???) ???
-      else if (???) ???
-      else iter(???)
+      if (a.abs > bound) true
+      else if (!p(a) && s(a)) false
+      else iter(a + 1)
     }
-    iter(???)
+    iter(-1000)
   }
   //TODO: forall : check if all integers verify the predicate
 
@@ -77,14 +77,41 @@ object FunSets {
    * Returns whether there exists a bounded integer within `s`
    * that satisfies `p`.
    */
-  def exists(s: FunSet, p: Int => Boolean): Boolean =
-    ??? //TODO: check if at least an integer verifies the predicate
+  def exists(s: FunSet, p: Int => Boolean): Boolean = {
+    def iter(a: Int): Boolean = {
+      if (a.abs > bound) false
+      else if (p(a) && s(a)) true
+      else iter(a + 1)
+    }
+    iter(-1000)
+  }
+
+  //TODO: check if at least an integer verifies the predicate
 
   /**
    * Returns a set transformed by applying `f` to each element of `s`.
    */
-  def map(s: FunSet, f: Int => Int): FunSet =
-    ??? //TODO : transform into a new set
+  def map(s: FunSet, f: Int => Int): FunSet = {
+
+    x => s(f(x))
+
+    /* def t(x:Int):Boolean={
+      if (s(x))
+        if(f(x)==)
+        //x => f(x)
+   else false
+    }
+    t*/
+    /* def compose(s1: FunSet, f1: Int => Int)(x: Int): Boolean = {
+      s1(f1(x))
+    }
+
+    compose(s, f)
+ */
+    //
+    //retourne la fonction qui à x associe l'ensemble des x contenus dans
+  }
+  //TODO : transform into a new set
 
   def toSet(ints: List[Int]): FunSet =
     ??? //TODO : (optional) convert a list to Set
