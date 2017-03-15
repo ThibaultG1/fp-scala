@@ -53,7 +53,7 @@ object FunSets {
    * Returns the subset of `s` for which `p` holds.
    */
   def filter(s: FunSet, p: Int => Boolean): FunSet =
-    x => !(s(x) && !p(x))
+    x => s(x) && p(x)
 
   /**
    * The bounds for `forall` and `exists` are +/- 1000.
@@ -93,7 +93,7 @@ object FunSets {
    */
   def map(s: FunSet, f: Int => Int): FunSet = {
 
-    x => s(f(x))
+    x => exists(s, x => s(f(x)))
 
     /* def t(x:Int):Boolean={
       if (s(x))
@@ -114,11 +114,12 @@ object FunSets {
   //TODO : transform into a new set
 
   def toSet(ints: List[Int]): FunSet =
-    ??? //TODO : (optional) convert a list to Set
+    x => ints.contains(x)
+
+  //TODO : (optional) convert a list to Set
 
   def toList(set: FunSet): List[Int] =
-    ??? //TODO : (optional) convert a Set to a List
-
+def
   /**
    * Displays the contents of a set
    */
